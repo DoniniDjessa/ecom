@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: '/blinggestion/', // Hide backoffice from search
+      disallow: '/s-gestion/', // Hide backoffice from search
     },
     sitemap: 'https://ltyymood.com/sitemap.xml',
   }

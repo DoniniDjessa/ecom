@@ -9,7 +9,7 @@ import BottomNav from '@/components/BottomNav';
 
 export default function LayoutSwitcher({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const isAdmin = pathname.startsWith('/blinggestion');
+  const isAdmin = pathname.startsWith('/s-gestion');
 
   if (isAdmin) {
     return <main>{children}</main>;

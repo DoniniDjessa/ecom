@@ -79,9 +79,9 @@ export default function Header() {
         <div className={styles.brandWrap}>
           <Link href="/" className={styles.brand}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo.png" alt="Bling Store" className={styles.brandLogo} />
+            <img src="/logo.png" alt="Sunfall Studio" className={styles.brandLogo} />
             <span className={styles.brandText}>
-              <span className={styles.brandName}>Bling Store</span>
+              <span className={styles.brandName}>Sunfall Studio</span>
               <span className={styles.brandTag}>BOUTIQUE PREMIUM</span>
             </span>
           </Link>

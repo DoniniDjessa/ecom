@@ -28,7 +28,7 @@ export default function PanierPage() {
       (i) => `• ${i.nameFr} ×${i.quantity} — ${(i.price * i.quantity).toLocaleString()} FCFA`
     );
     const msg = [
-      '🛍 *Commande Bling Store*',
+      '🛍 *Commande Sunfall Studio*',
       '',
       ...lines,
       '',

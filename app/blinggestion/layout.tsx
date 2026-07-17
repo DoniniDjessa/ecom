@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Bling Store Backoffice',
+  title: 'Sunfall Studio Backoffice',
   robots: {
     index: false,
     follow: false,

@@ -35,7 +35,7 @@ export default function ProductDetailPage() {
       setProduct({
         id: data.id,
         name: data.name,
-        nameFr: data.name_fr || data.name || 'Produit Bling Store',
+        nameFr: data.name_fr || data.name || 'Produit Sunfall Studio',
         price: data.price,
         category: data.category,
         image: data.images?.[0] || '/images/placeholder.jpg',

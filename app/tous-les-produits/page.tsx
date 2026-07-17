@@ -50,7 +50,7 @@ function TousLesProduitsContent() {
 
         const mapped = (productsRes.data || []).map((p: any) => ({
           ...p,
-          nameFr: p.name_fr || p.name || 'Produit Bling Store',
+          nameFr: p.name_fr || p.name || 'Produit Sunfall Studio',
           image: p.images?.[0] || '/images/placeholder.jpg',
           isBestseller: Boolean(p.is_bestseller),
           isNew: Boolean(p.is_new),

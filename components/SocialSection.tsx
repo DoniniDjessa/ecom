@@ -65,7 +65,7 @@ export default function SocialSection() {
     {
       id: 'fb',
       name: 'Facebook',
-      handle: 'Bling Store',
+      handle: 'Sunfall Studio',
       url: 'https://www.facebook.com/',
       icon: <FaFacebookF />,
       img: previews.fb.img,

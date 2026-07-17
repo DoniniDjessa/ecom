@@ -163,7 +163,7 @@ export default function BlingBackoffice() {
     return (
       <div className={styles.authWrapper}>
         <div className={styles.authCard}>
-          <h1 style={{ fontFamily: 'var(--font-display)' }}>Bling Store</h1>
+          <h1 style={{ fontFamily: 'var(--font-display)' }}>Sunfall Studio</h1>
           <p style={{ color: '#888', fontSize: '0.8rem' }}>
             Entrez le code d&apos;acces administrateur
           </p>
@@ -198,7 +198,7 @@ export default function BlingBackoffice() {
   return (
     <div className={styles.adminLayout}>
       <aside className={styles.sidebar}>
-        <div className={styles.logo}>Bling Store</div>
+        <div className={styles.logo}>Sunfall Studio</div>
         <nav className={styles.nav}>
           {tabs.map((item) => {
             const Icon = item.icon;

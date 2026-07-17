@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import FilterableGallery from '@/components/FilterableGallery';
 
 export const metadata: Metadata = {
-  title: 'Perruques — Bling Store',
+  title: 'Perruques — Sunfall Studio',
   description: 'Découvrez notre collection de perruques premium : lace front, ondulées, afro, bob et plus encore.',
 };
 

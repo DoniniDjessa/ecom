@@ -8,8 +8,8 @@ export default function Footer() {
       <div className={styles.inner}>
         <div className={styles.brand}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo.png" alt="Bling Store" className={styles.logoImg} />
-          <p className={styles.name}>Bling Store</p>
+          <img src="/logo.png" alt="Sunfall Studio" className={styles.logoImg} />
+          <p className={styles.name}>Sunfall Studio</p>
           <p className={styles.tag}>BOUTIQUE PREMIUM</p>
           <p className={styles.desc}>
             Une collection premium de perruques et de vêtements incarnant le luxe dans chaque fibre.
@@ -38,7 +38,7 @@ export default function Footer() {
       </div>
 
       <div className={styles.bottom}>
-        <p>© {new Date().getFullYear()} Bling Store — Fait avec <FaHeart className={styles.heart} /> pour la beauté</p>
+        <p>© {new Date().getFullYear()} Sunfall Studio — Fait avec <FaHeart className={styles.heart} /> pour la beauté</p>
       </div>
     </footer>
   );

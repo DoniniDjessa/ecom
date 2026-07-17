@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import FilterableGallery from '@/components/FilterableGallery';
 
 export const metadata: Metadata = {
-  title: 'Accessoires & Bijoux — Bling Store',
+  title: 'Accessoires & Bijoux — Sunfall Studio',
   description: 'Complétez votre look avec notre sélection de bijoux et accessoires tendance.',
 };
 

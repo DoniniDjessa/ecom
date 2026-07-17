@@ -27,7 +27,7 @@ export default function PageLoader() {
           <div className={styles.imageContainer}>
             <Image 
               src="/logo.png" 
-              alt="Bling Store" 
+              alt="Sunfall Studio" 
               width={160} 
               height={160} 
               className={styles.loaderImage}
@@ -42,7 +42,7 @@ export default function PageLoader() {
         </div>
 
         <div className={styles.brand}>
-          <span className={styles.brandMain}>Bling Store</span>
+          <span className={styles.brandMain}>Sunfall Studio</span>
           <span className={styles.brandSub}>BOUTIQUE PREMIUM</span>
         </div>
 

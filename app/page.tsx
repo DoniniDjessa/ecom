@@ -40,7 +40,7 @@ export default function HomePage() {
       const mapProduct = (p: any) => ({
         id: p.id,
         name: p.name,
-        nameFr: p.name_fr || p.name || "Produit Bling Store",
+        nameFr: p.name_fr || p.name || "Produit Sunfall Studio",
         price: p.price,
         category: p.category,
         image: p.images?.[0] || "/images/placeholder.jpg",

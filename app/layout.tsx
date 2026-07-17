@@ -5,10 +5,10 @@ import LayoutSwitcher from './layout-switcher';
 import PageLoader from '@/components/PageLoader';
 
 export const metadata: Metadata = {
-  title: 'Bling Store | Perruques & Mode Premium à Abidjan',
+  title: 'Sunfall Studio | Perruques & Mode Premium à Abidjan',
   description:
-    'Découvrez Bling Store, votre boutique de référence pour les perruques glams, extensions et vêtements fashion. Qualité premium et style unique à Abidjan.',
-  keywords: 'perruques Abidjan, mode femme Côte d\'Ivoire, extensions cheveux, wigs premium, vêtements tendance, Bling Store boutique, mèches humaines',
+    'Découvrez Sunfall Studio, votre boutique de référence pour les perruques glams, extensions et vêtements fashion. Qualité premium et style unique à Abidjan.',
+  keywords: 'perruques Abidjan, mode femme Côte d\'Ivoire, extensions cheveux, wigs premium, vêtements tendance, Sunfall Studio boutique, mèches humaines',
   icons: {
     icon: [
       { url: '/logo.png', type: 'image/png', sizes: 'any' },
@@ -18,14 +18,14 @@ export const metadata: Metadata = {
     shortcut: '/logo.png',
   },
   openGraph: {
-    title: 'Bling Store | Perruques & Mode Premium à Abidjan',
+    title: 'Sunfall Studio | Perruques & Mode Premium à Abidjan',
     description: 'Définissez votre mood avec notre collection de perruques et vêtements premium.',
     images: ['/logo.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Bling Store | Perruques & Mode Premium',
+    title: 'Sunfall Studio | Perruques & Mode Premium',
     description: 'Boutique de perruques et mode tendance.',
     images: ['/logo.png'],
   },

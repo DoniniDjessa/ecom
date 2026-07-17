@@ -1,0 +1,63 @@
+/* Floating WhatsApp */
+.whatsapp {
+  position: fixed;
+  left: 1.5rem;
+  bottom: 2rem;
+  z-index: 500;
+  width: 52px;
+  height: 52px;
+  background: #25d366;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+  transition: transform var(--transition), box-shadow var(--transition);
+  animation: fadeIn 1s ease 2.5s both;
+}
+
+.whatsapp:hover {
+  transform: scale(1.12) rotate(-5deg);
+  box-shadow: 0 8px 30px rgba(37,211,102,0.6);
+}
+
+/* Go To Top */
+.goTop {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 2rem;
+  z-index: 500;
+  width: 44px;
+  height: 44px;
+  background: var(--dark);
+  color: var(--cream-light);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--transition), transform var(--transition), background var(--transition);
+  pointer-events: none;
+}
+
+.goTopVisible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.goTop:hover {
+  background: var(--gold);
+}
+
+@media (max-width: 768px) {
+  .whatsapp, .goTop {
+    display: none;
+  }
+}

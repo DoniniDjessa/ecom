@@ -1,0 +1,116 @@
+.section {
+  padding: 5rem 2rem;
+  background: var(--cream-light);
+  overflow: hidden;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+}
+
+.mockupWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.phoneFrame {
+  width: 340px;
+  height: 720px;
+  background: #050505;
+  border-radius: 42px;
+  padding: 4px; /* Slim frame */
+  position: relative;
+  box-shadow: 
+    0 40px 80px rgba(0,0,0,0.2),
+    0 0 0 1px #333;
+  border: 2px solid #1a1a1a;
+  box-sizing: border-box;
+}
+
+/* Dynamic Island Slimmed */
+.phoneFrame::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 22px;
+  background: #000;
+  border-radius: 20px;
+  z-index: 10;
+}
+
+.screen {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  border-radius: 36px;
+  overflow: hidden;
+  position: relative;
+  padding: 2px; /* Minimum bezel */
+}
+
+.previewImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 34px;
+}
+
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #ccc;
+  font-size: 0.8rem;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.iconBox {
+  font-size: 2rem;
+  color: var(--gold);
+}
+
+.socialBtn {
+  padding: 0.8rem 2rem;
+  background: var(--white);
+  color: var(--dark);
+  border: 1px solid var(--cream-dark);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+.socialBtn:hover {
+  background: var(--dark);
+  color: white;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .section { padding: 4rem 1.5rem; }
+  .container { gap: 3rem; }
+  .phoneFrame { width: 300px; height: 640px; border-radius: 38px; padding: 3px; }
+  .screen { border-radius: 34px; padding: 2px; }
+  .previewImg { border-radius: 32px; }
+}

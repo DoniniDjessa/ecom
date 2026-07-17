@@ -1,0 +1,120 @@
+/* ── Full-screen overlay ─────────────────────────────── */
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--cream-light);
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.fadeOut {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* ── Inner container ────────────────────────────────── */
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+  animation: fadeUp 0.5s ease forwards;
+}
+
+/* ── Brand ──────────────────────────────────────────── */
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.brandMain {
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--dark);
+  letter-spacing: 0.04em;
+}
+
+.brandSub {
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+/* ── Image wrap (clip context for sweep) ─────────────── */
+.imageWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.imageContainer {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loaderImage {
+  object-fit: contain;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* ── Light sweep ────────────────────────────────────── */
+.sweep {
+  position: absolute;
+  top: -10%;
+  left: 0;
+  width: 55%;
+  height: 120%;
+  pointer-events: none;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0) 20%,
+    rgba(255, 255, 255, 0.92) 48%,
+    rgba(232, 208, 160, 0.5) 54%,
+    rgba(255, 255, 255, 0) 80%,
+    transparent 100%
+  );
+  animation: lightSweep 1.8s ease-in-out infinite;
+  mix-blend-mode: screen;
+}
+
+@keyframes lightSweep {
+  0%   { transform: translateX(-120%); }
+  100% { transform: translateX(310%); }
+}
+
+/* ── Progress bar ───────────────────────────────────── */
+.progressTrack {
+  width: 160px;
+  height: 2px;
+  background: var(--cream-dark);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.progressBar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
+  border-radius: 1px;
+  animation: progressFill 2.2s ease forwards;
+}
+
+@keyframes progressFill {
+  0%   { width: 0%; }
+  60%  { width: 75%; }
+  100% { width: 100%; }
+}

@@ -68,6 +68,16 @@ export default function ProductCard({ product, index = 0 }: Props) {
             <FaHeart />
           </button>
 
+          <button
+            type="button"
+            className={`${styles.mobileCart} ${added ? styles.mobileCartAdded : ''}`}
+            onClick={handleAdd}
+            disabled={product.stock_qty !== undefined && product.stock_qty <= 0}
+            aria-label={added ? 'Ajouté au panier' : 'Ajouter au panier'}
+          >
+            {added ? '✓' : <FaShoppingBag />}
+          </button>
+
           <div className={styles.quickAdd}>
             <button
               className={`${styles.addBtn} ${added ? styles.addedState : ''}`}
@@ -91,14 +101,14 @@ export default function ProductCard({ product, index = 0 }: Props) {
             {product.discount_percent && product.discount_percent > 0 ? (
               <>
                 <span className={styles.price}>
-                  {(product.price * (1 - product.discount_percent / 100)).toLocaleString()} CFA
+                  {(product.price * (1 - product.discount_percent / 100)).toLocaleString()} FCFA
                 </span>
                 <span className={styles.oldPrice}>
-                  {product.price.toLocaleString()} CFA
+                  {product.price.toLocaleString()} FCFA
                 </span>
               </>
             ) : (
-              <span className={styles.price}>{product.price.toLocaleString()} CFA</span>
+              <span className={styles.price}>{product.price.toLocaleString()} FCFA</span>
             )}
           </div>
         </div>

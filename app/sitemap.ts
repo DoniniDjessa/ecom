@@ -18,7 +18,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   try {
     // Dynamic products
-    const { data: products } = await supabase.from('lty_products').select('id, updated_at')
+    const { data: products } = await supabase.from('ecom-products').select('id, updated_at')
     
     const productRoutes = (products || []).map((p) => ({
       url: `${baseUrl}/produits/${p.id}`,

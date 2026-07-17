@@ -27,7 +27,7 @@ export default function FilterableGallery({ category, title, subtitle }: Props) 
   async function fetchProducts() {
     setLoading(true);
     const { data, error } = await supabase
-      .from('lty_products')
+      .from('ecom-products')
       .select('*')
       .eq('category', category)
       .order('created_at', { ascending: false });
@@ -39,7 +39,7 @@ export default function FilterableGallery({ category, title, subtitle }: Props) 
       const mapped = (data || []).map((p: any) => ({
         id: p.id,
         name: p.name,
-        nameFr: p.name_fr || p.name || 'Produit Ltyy Mood',
+        nameFr: p.name_fr || p.name || 'Produit Bling Store',
         price: p.price,
         category: p.category,
         image: p.images?.[0] || '/images/placeholder.jpg',
@@ -96,7 +96,7 @@ export default function FilterableGallery({ category, title, subtitle }: Props) 
       {showFilters && (
         <div className={styles.filterPanel}>
           <div className={styles.filterGroup}>
-            <label>Prix max: {priceRange[1].toLocaleString()} CFA</label>
+            <label>Prix max: {priceRange[1].toLocaleString()} FCFA</label>
             <input 
               type="range" 
               min="0" 

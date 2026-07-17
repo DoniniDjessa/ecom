@@ -21,7 +21,7 @@ export default function ProductDetailPage() {
   useEffect(() => {
     async function fetchProduct() {
       const { data, error } = await supabase
-        .from('lty_products')
+        .from('ecom-products')
         .select('*')
         .eq('id', id)
         .single();
@@ -35,7 +35,7 @@ export default function ProductDetailPage() {
       setProduct({
         id: data.id,
         name: data.name,
-        nameFr: data.name_fr || data.name || 'Produit Ltyy Mood',
+        nameFr: data.name_fr || data.name || 'Produit Bling Store',
         price: data.price,
         category: data.category,
         image: data.images?.[0] || '/images/placeholder.jpg',
@@ -105,14 +105,14 @@ export default function ProductDetailPage() {
             {product.discount_percent && product.discount_percent > 0 ? (
               <>
                 <span className={styles.price}>
-                  {(product.price * (1 - product.discount_percent / 100)).toLocaleString()} CFA
+                  {(product.price * (1 - product.discount_percent / 100)).toLocaleString()} FCFA
                 </span>
                 <span className={styles.oldPrice}>
-                  {product.price.toLocaleString()} CFA
+                  {product.price.toLocaleString()} FCFA
                 </span>
               </>
             ) : (
-              <p className={styles.price}>{product.price.toLocaleString()} CFA</p>
+              <p className={styles.price}>{product.price.toLocaleString()} FCFA</p>
             )}
           </div>
           

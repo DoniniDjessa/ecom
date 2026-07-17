@@ -1,13 +1,47 @@
 'use client';
 
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { FaHome, FaCut, FaTshirt, FaGem, FaWhatsapp } from 'react-icons/fa';
+import { FaHome, FaWhatsapp, FaTag } from 'react-icons/fa';
+import { supabase } from '@/lib/supabase';
 import styles from './BottomNav.module.css';
+
+type CatLink = { id: string; label: string; href: string };
+
+function niceLabel(raw: string) {
+  const cleaned = (raw || '')
+    .replace(/^(acheter|voir)\s+/i, '')
+    .trim();
+  if (!cleaned) return raw;
+  return cleaned.charAt(0).toUpperCase() + cleaned.slice(1).toLowerCase();
+}
 
 export default function BottomNav() {
   const pathname = usePathname();
-  const whatsappNumber = "2250545233028";
+  const whatsappNumber = '2250545233028';
+  const [categories, setCategories] = useState<CatLink[]>([]);
+
+  useEffect(() => {
+    async function fetchCategories() {
+      const { data } = await supabase
+        .from('ecom-categories')
+        .select('id, label, href, sort_order')
+        .order('sort_order', { ascending: true });
+
+      setCategories(
+        (data || []).slice(0, 3).map((cat) => ({
+          id: cat.id,
+          label: niceLabel(cat.label || cat.id),
+          href: cat.href || `/${cat.id}`,
+        }))
+      );
+    }
+    fetchCategories();
+  }, []);
+
+  const left = categories.slice(0, 1);
+  const right = categories.slice(1, 3);
 
   return (
     <nav className={styles.bottomNav}>
@@ -15,14 +49,20 @@ export default function BottomNav() {
         <FaHome />
         <span>Accueil</span>
       </Link>
-      <Link href="/perruques" className={`${styles.navItem} ${pathname === '/perruques' ? styles.active : ''}`}>
-        <FaCut />
-        <span>Perruques</span>
-      </Link>
-      
-      {/* Central WhatsApp Button */}
+
+      {left.map((cat) => (
+        <Link
+          key={cat.id}
+          href={cat.href}
+          className={`${styles.navItem} ${pathname === cat.href ? styles.active : ''}`}
+        >
+          <FaTag />
+          <span>{cat.label}</span>
+        </Link>
+      ))}
+
       <div className={styles.centerItem}>
-        <a 
+        <a
           href={`https://wa.me/${whatsappNumber}`}
           target="_blank"
           rel="noopener noreferrer"
@@ -32,14 +72,16 @@ export default function BottomNav() {
         </a>
       </div>
 
-      <Link href="/vetements" className={`${styles.navItem} ${pathname === '/vetements' ? styles.active : ''}`}>
-        <FaTshirt />
-        <span>Vêtements</span>
-      </Link>
-      <Link href="/accessoires" className={`${styles.navItem} ${pathname === '/accessoires' ? styles.active : ''}`}>
-        <FaGem />
-        <span>Accessoires</span>
-      </Link>
+      {right.map((cat) => (
+        <Link
+          key={cat.id}
+          href={cat.href}
+          className={`${styles.navItem} ${pathname === cat.href ? styles.active : ''}`}
+        >
+          <FaTag />
+          <span>{cat.label}</span>
+        </Link>
+      ))}
     </nav>
   );
 }

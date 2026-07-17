@@ -22,31 +22,28 @@ export default function PageLoader() {
     <div className={`${styles.loader} ${fading ? styles.fadeOut : ''}`}>
       <div className={styles.inner}>
 
-        {/* Loader Image with light sweep */}
+        {/* Logo with light sweep */}
         <div className={styles.imageWrap}>
           <div className={styles.imageContainer}>
             <Image 
-              src="/load.png" 
-              alt="Loading" 
+              src="/logo.png" 
+              alt="Bling Store" 
               width={160} 
               height={160} 
               className={styles.loaderImage}
               priority
             />
-            {/* Light sweep overlay */}
             <div className={styles.sweep} aria-hidden="true" />
           </div>
           
-          {/* Progress bar directly below image */}
           <div className={styles.progressTrack}>
             <div className={styles.progressBar} />
           </div>
         </div>
 
-        {/* Brand Name below image */}
         <div className={styles.brand}>
-          <span className={styles.brandMain}>Ltyy Mood</span>
-          <span className={styles.brandSub}>HAIR &amp; FASHION</span>
+          <span className={styles.brandMain}>Bling Store</span>
+          <span className={styles.brandSub}>BOUTIQUE PREMIUM</span>
         </div>
 
       </div>

@@ -80,13 +80,13 @@
   text-transform: uppercase;
   border-radius: 2px;
   transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
-  box-shadow: 0 4px 20px rgba(200,169,110,0.4);
+  box-shadow: 0 4px 20px rgba(196,91,122,0.4);
 }
 
 .shopBtn:hover {
   background: var(--gold-dark);
   transform: translateY(-3px);
-  box-shadow: 0 8px 30px rgba(200,169,110,0.55);
+  box-shadow: 0 8px 30px rgba(196,91,122,0.55);
 }
 
 @media (max-width: 768px) {

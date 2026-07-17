@@ -20,8 +20,9 @@
 
 /* ── Info ─────────────────── */
 .info h2 {
-  font-size: 1.3rem;
-  font-weight: 700;
+  font-family: var(--font-sm-title);
+  font-size: 1.45rem;
+  font-weight: 400;
   margin-bottom: 1rem;
   color: var(--dark);
 }
@@ -96,8 +97,9 @@
 }
 
 .form h2 {
-  font-size: 1.25rem;
-  font-weight: 700;
+  font-family: var(--font-sm-title);
+  font-size: 1.4rem;
+  font-weight: 400;
   color: var(--dark);
   margin-bottom: 0.5rem;
 }
@@ -139,7 +141,7 @@
 .field input:focus,
 .field textarea:focus {
   border-color: var(--gold);
-  box-shadow: 0 0 0 3px rgba(200,169,110,0.15);
+  box-shadow: 0 0 0 3px rgba(196,91,122,0.15);
 }
 
 /* ── Responsive ─────────────── */

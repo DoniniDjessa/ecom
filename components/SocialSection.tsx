@@ -3,43 +3,77 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { supabase } from '@/lib/supabase';
-import { FaInstagram, FaTiktok } from 'react-icons/fa';
+import { FaInstagram, FaTiktok, FaFacebookF } from 'react-icons/fa';
 import styles from './SocialSection.module.css';
 
+type SocialPreview = {
+  img: string;
+  visible: boolean;
+};
+
 export default function SocialSection() {
-  const [previews, setPreviews] = useState<any>({ instagram: '', tiktok: '' });
+  const [previews, setPreviews] = useState<Record<string, SocialPreview>>({
+    ig: { img: '', visible: true },
+    tt: { img: '', visible: true },
+    fb: { img: '', visible: true },
+  });
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     async function fetchPreviews() {
-      const { data } = await supabase.from('lty_settings').select('*');
-      const map: any = {};
-      data?.forEach(s => map[s.key] = s.value);
+      const { data } = await supabase.from('ecom-settings').select('*');
+      const map: Record<string, string> = {};
+      data?.forEach(s => { map[s.key] = s.value; });
       setPreviews({
-        instagram: map.ig_preview || '',
-        tiktok: map.tt_preview || ''
+        ig: {
+          img: map.ig_preview || '',
+          visible: map.ig_visible !== 'false',
+        },
+        tt: {
+          img: map.tt_preview || '',
+          visible: map.tt_visible !== 'false',
+        },
+        fb: {
+          img: map.fb_preview || '',
+          visible: map.fb_visible !== 'false',
+        },
       });
+      setLoaded(true);
     }
     fetchPreviews();
   }, []);
 
   const socials = [
-    { 
-      id: 'ig', 
-      name: 'Instagram', 
-      handle: '@l_tyy_mood', 
+    {
+      id: 'ig',
+      name: 'Instagram',
+      handle: '@blingstore',
       url: 'https://www.instagram.com/l_tyy_mood',
       icon: <FaInstagram />,
-      img: previews.instagram
+      img: previews.ig.img,
+      visible: previews.ig.visible,
     },
-    { 
-      id: 'tt', 
-      name: 'TikTok', 
-      handle: '@laety_yy28', 
+    {
+      id: 'tt',
+      name: 'TikTok',
+      handle: '@blingstore',
       url: 'https://www.tiktok.com/@laety_yy28',
       icon: <FaTiktok />,
-      img: previews.tiktok
-    }
-  ];
+      img: previews.tt.img,
+      visible: previews.tt.visible,
+    },
+    {
+      id: 'fb',
+      name: 'Facebook',
+      handle: 'Bling Store',
+      url: 'https://www.facebook.com/',
+      icon: <FaFacebookF />,
+      img: previews.fb.img,
+      visible: previews.fb.visible,
+    },
+  ].filter((s) => s.visible);
+
+  if (loaded && socials.length === 0) return null;
 
   return (
     <section className={styles.section}>
@@ -50,18 +84,18 @@ export default function SocialSection() {
         viewport={{ once: true }}
       >
         <h2 className="section-title">Rejoignez la Communauté</h2>
-        <p className="section-subtitle">Suivez-nous sur les réseaux (@ltyymood)</p>
+        <p className="section-subtitle">Suivez-nous sur les réseaux (@blingstore)</p>
       </motion.div>
 
       <div className={styles.container}>
         {socials.map((social, i) => (
-          <motion.div 
+          <motion.div
             key={social.id}
             className={styles.mockupWrapper}
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.2 }}
+            transition={{ delay: i * 0.15 }}
           >
             <div className={styles.phoneFrame}>
               <div className={styles.screen}>

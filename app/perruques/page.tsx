@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import FilterableGallery from '@/components/FilterableGallery';
 
 export const metadata: Metadata = {
-  title: 'Perruques — Ltyy Mood',
+  title: 'Perruques — Bling Store',
   description: 'Découvrez notre collection de perruques premium : lace front, ondulées, afro, bob et plus encore.',
 };
 

@@ -78,7 +78,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   // Load from localStorage on mount
   useEffect(() => {
     try {
-      const stored = localStorage.getItem('ltyymood_cart');
+      const stored = localStorage.getItem('bling_store_cart');
       if (stored) {
         const parsed = JSON.parse(stored) as CartItem[];
         dispatch({ type: 'LOAD', items: parsed });
@@ -88,7 +88,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   // Persist to localStorage on change
   useEffect(() => {
-    localStorage.setItem('ltyymood_cart', JSON.stringify(state.items));
+    localStorage.setItem('bling_store_cart', JSON.stringify(state.items));
   }, [state.items]);
 
   const totalItems = state.items.reduce((s, i) => s + i.quantity, 0);

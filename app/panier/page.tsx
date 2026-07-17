@@ -25,14 +25,14 @@ export default function PanierPage() {
   const buildWhatsAppMessage = () => {
     if (items.length === 0) return '#';
     const lines = items.map(
-      (i) => `• ${i.nameFr} ×${i.quantity} — ${(i.price * i.quantity).toLocaleString()} CFA`
+      (i) => `• ${i.nameFr} ×${i.quantity} — ${(i.price * i.quantity).toLocaleString()} FCFA`
     );
     const msg = [
-      '🛍 *Commande Ltyy Mood*',
+      '🛍 *Commande Bling Store*',
       '',
       ...lines,
       '',
-      `*Total : ${totalPrice.toLocaleString()} CFA*`,
+      `*Total : ${totalPrice.toLocaleString()} FCFA*`,
     ].join('\n');
     return `https://wa.me/2250545233028?text=${encodeURIComponent(msg)}`;
   };
@@ -52,7 +52,7 @@ export default function PanierPage() {
     
     try {
       const { error } = await supabase
-        .from('lty_orders')
+        .from('ecom-orders')
         .insert([{
           customer_name: orderForm.name,
           customer_phone: orderForm.phone,
@@ -76,7 +76,7 @@ export default function PanierPage() {
     // 1. Save to DB first
     try {
       await supabase
-        .from('lty_orders')
+        .from('ecom-orders')
         .insert([{
           customer_name: 'Client WhatsApp',
           customer_phone: 'WhatsApp',
@@ -174,7 +174,7 @@ export default function PanierPage() {
                     <div className={styles.itemInfo}>
                       <p className={styles.itemName}>{item.nameFr}</p>
                       <p className={styles.itemCategory}>{item.category}</p>
-                      <p className={styles.itemPrice}>{item.price.toLocaleString()} CFA / unité</p>
+                      <p className={styles.itemPrice}>{item.price.toLocaleString()} FCFA / unité</p>
                     </div>
                     <div className={styles.itemControls}>
                       <div className={styles.qty}>
@@ -195,7 +195,7 @@ export default function PanierPage() {
                         </button>
                       </div>
                       <p className={styles.itemTotal}>
-                        {(item.price * item.quantity).toLocaleString()} CFA
+                        {(item.price * item.quantity).toLocaleString()} FCFA
                       </p>
                       <button
                         className={styles.remove}
@@ -228,7 +228,7 @@ export default function PanierPage() {
                 {items.map((i) => (
                   <div key={i.id} className={styles.summaryRow}>
                     <span>{i.nameFr} ×{i.quantity}</span>
-                    <span>{(i.price * i.quantity).toLocaleString()} CFA</span>
+                    <span>{(i.price * i.quantity).toLocaleString()} FCFA</span>
                   </div>
                 ))}
               </div>
@@ -237,7 +237,7 @@ export default function PanierPage() {
 
               <div className={styles.total}>
                 <span>Total</span>
-                <span className={styles.totalPrice}>{totalPrice.toLocaleString()} CFA</span>
+                <span className={styles.totalPrice}>{totalPrice.toLocaleString()} FCFA</span>
               </div>
 
               {/* Standard order button */}
@@ -320,12 +320,12 @@ export default function PanierPage() {
                     {items.map((i) => (
                       <div key={i.id} className={styles.modalItem}>
                         <span>{i.nameFr} ×{i.quantity}</span>
-                        <span>{(i.price * i.quantity).toLocaleString()} CFA</span>
+                        <span>{(i.price * i.quantity).toLocaleString()} FCFA</span>
                       </div>
                     ))}
                     <div className={styles.modalTotal}>
                       <strong>Total</strong>
-                      <strong>{totalPrice.toLocaleString()} CFA</strong>
+                      <strong>{totalPrice.toLocaleString()} FCFA</strong>
                     </div>
                   </div>
 

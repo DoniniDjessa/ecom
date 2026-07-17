@@ -2,8 +2,8 @@ import { Metadata } from 'next';
 import FilterableGallery from '@/components/FilterableGallery';
 
 export const metadata: Metadata = {
-  title: 'Vêtements — Ltyy Mood',
-  description: 'Collections mode et vêtements premium pour la femme moderne chez Ltyy Mood.',
+  title: 'Vêtements — Bling Store',
+  description: 'Collections mode et vêtements premium pour la femme moderne chez Bling Store.',
 };
 
 export default function VetementsPage() {

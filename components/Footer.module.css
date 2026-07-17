@@ -15,6 +15,14 @@
 
 .brand { }
 
+.logoImg {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 0.75rem;
+}
+
 .name {
   font-size: 1.5rem;
   font-weight: 700;
@@ -47,7 +55,7 @@
 .socials a {
   width: 36px;
   height: 36px;
-  border: 1px solid rgba(200,169,110,0.3);
+  border: 1px solid rgba(196,91,122,0.3);
   border-radius: 50%;
   display: flex;
   align-items: center;

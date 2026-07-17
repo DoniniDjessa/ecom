@@ -4,20 +4,27 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { FaInstagram, FaTiktok, FaShoppingBag } from 'react-icons/fa';
 import { useCart } from '@/context/CartContext';
+import { supabase } from '@/lib/supabase';
 import styles from './Header.module.css';
 
-const navLinks = [
-  { label: 'Accueil', href: '/' },
-  { label: 'Perruques', href: '/perruques' },
-  { label: 'Vêtements', href: '/vetements' },
-  { label: 'Accessoires', href: '/accessoires' },
-  { label: 'Contactez-nous', href: '/contactez-nous' },
-];
+type NavLink = { label: string; href: string };
+
+function niceLabel(raw: string) {
+  const cleaned = (raw || '')
+    .replace(/^(acheter|voir)\s+/i, '')
+    .trim();
+  if (!cleaned) return raw;
+  return cleaned.charAt(0).toUpperCase() + cleaned.slice(1).toLowerCase();
+}
 
 export default function Header() {
   const { totalItems } = useCart();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [navLinks, setNavLinks] = useState<NavLink[]>([
+    { label: 'Accueil', href: '/' },
+    { label: 'Contactez-nous', href: '/contactez-nous' },
+  ]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -25,9 +32,29 @@ export default function Header() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  useEffect(() => {
+    async function fetchCategories() {
+      const { data } = await supabase
+        .from('ecom-categories')
+        .select('id, label, href, sort_order')
+        .order('sort_order', { ascending: true });
+
+      const categoryLinks = (data || []).map((cat) => ({
+        label: niceLabel(cat.label || cat.id),
+        href: cat.href || `/${cat.id}`,
+      }));
+
+      setNavLinks([
+        { label: 'Accueil', href: '/' },
+        ...categoryLinks,
+        { label: 'Contactez-nous', href: '/contactez-nous' },
+      ]);
+    }
+    fetchCategories();
+  }, []);
+
   return (
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
-      {/* Top Bar */}
       <div className={styles.topBar}>
         <div className={styles.socials}>
           <a
@@ -51,8 +78,12 @@ export default function Header() {
         </div>
         <div className={styles.brandWrap}>
           <Link href="/" className={styles.brand}>
-            <span className={styles.brandName}>Ltyy Mood</span>
-            <span className={styles.brandTag}>HAIR &amp; FASHION</span>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo.png" alt="Bling Store" className={styles.brandLogo} />
+            <span className={styles.brandText}>
+              <span className={styles.brandName}>Bling Store</span>
+              <span className={styles.brandTag}>BOUTIQUE PREMIUM</span>
+            </span>
           </Link>
         </div>
         <div className={styles.actions}>
@@ -72,11 +103,10 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Nav */}
       <nav className={styles.nav}>
         <ul className={`${styles.navList} ${menuOpen ? styles.open : ''}`}>
           {navLinks.map((link) => (
-            <li key={link.href}>
+            <li key={`${link.href}-${link.label}`}>
               <Link
                 href={link.href}
                 className={styles.navLink}

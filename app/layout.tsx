@@ -5,28 +5,29 @@ import LayoutSwitcher from './layout-switcher';
 import PageLoader from '@/components/PageLoader';
 
 export const metadata: Metadata = {
-  title: 'Ltyy Mood | Perruques & Mode Premium à Abidjan',
+  title: 'Bling Store | Perruques & Mode Premium à Abidjan',
   description:
-    'Découvrez Ltyy Mood, votre boutique de référence pour les perruques glams, extensions et vêtements fashion. Qualité premium et style unique à Abidjan.',
-  keywords: 'perruques Abidjan, mode femme Côte d\'Ivoire, extensions cheveux, wigs premium, vêtements tendance, Ltyy Mood boutique, mèches humaines',
+    'Découvrez Bling Store, votre boutique de référence pour les perruques glams, extensions et vêtements fashion. Qualité premium et style unique à Abidjan.',
+  keywords: 'perruques Abidjan, mode femme Côte d\'Ivoire, extensions cheveux, wigs premium, vêtements tendance, Bling Store boutique, mèches humaines',
   icons: {
     icon: [
-      { url: '/ltyy.svg', type: 'image/svg+xml' },
-      { url: '/ltyy.png', type: 'image/png' },
+      { url: '/logo.png', type: 'image/png', sizes: 'any' },
+      { url: '/favicon.png', type: 'image/png' },
     ],
-    apple: '/ltyy.png',
+    apple: [{ url: '/logo.png', type: 'image/png' }],
+    shortcut: '/logo.png',
   },
   openGraph: {
-    title: 'Ltyy Mood | Perruques & Mode Premium à Abidjan',
+    title: 'Bling Store | Perruques & Mode Premium à Abidjan',
     description: 'Définissez votre mood avec notre collection de perruques et vêtements premium.',
-    images: ['/ltyy.png'],
+    images: ['/logo.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Ltyy Mood | Perruques & Mode Premium',
+    title: 'Bling Store | Perruques & Mode Premium',
     description: 'Boutique de perruques et mode tendance.',
-    images: ['/ltyy.png'],
+    images: ['/logo.png'],
   },
 };
 
@@ -41,9 +42,12 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto+Condensed:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&display=swap"
           rel="stylesheet"
         />
+        <link rel="icon" href="/logo.png?v=2" type="image/png" sizes="any" />
+        <link rel="shortcut icon" href="/logo.png?v=2" type="image/png" />
+        <link rel="apple-touch-icon" href="/logo.png?v=2" />
       </head>
       <body>
         <CartProvider>
@@ -56,9 +60,9 @@ export default function RootLayout({
               xmlns="http://www.w3.org/2000/svg"
             >
               {/* Wig cap */}
-              <ellipse cx="150" cy="90" rx="120" ry="88" fill="#c8a96e"/>
+              <ellipse cx="150" cy="90" rx="120" ry="88" fill="#c45b7a"/>
               {/* Long flowing hair */}
-              <path d="M40 100 Q10 200 18 340 Q60 290 70 360 Q100 280 110 360 Q140 265 150 370 Q160 265 190 360 Q200 280 230 360 Q240 290 282 340 Q290 200 260 100 Q200 140 150 135 Q100 140 40 100Z" fill="#c8a96e"/>
+              <path d="M40 100 Q10 200 18 340 Q60 290 70 360 Q100 280 110 360 Q140 265 150 370 Q160 265 190 360 Q200 280 230 360 Q240 290 282 340 Q290 200 260 100 Q200 140 150 135 Q100 140 40 100Z" fill="#c45b7a"/>
               {/* Hair shine */}
               <path d="M80 120 Q72 220 78 320" stroke="rgba(255,255,255,0.15)" strokeWidth="6" strokeLinecap="round"/>
               <path d="M150 130 Q148 240 152 360" stroke="rgba(255,255,255,0.1)" strokeWidth="4" strokeLinecap="round"/>

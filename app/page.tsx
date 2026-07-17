@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
 import HeroSection from "@/components/HeroSection";
-import MarqueeBanner from "@/components/MarqueeBanner";
 import CategoryGrid from "@/components/CategoryGrid";
 import ProductSection from "@/components/ProductSection";
 import SocialSection from "@/components/SocialSection";
@@ -17,14 +16,14 @@ export default function HomePage() {
     async function fetchHomeProducts() {
       // Fetch Bestsellers
       const { data: bData } = await supabase
-        .from("lty_products")
+        .from("ecom-products")
         .select("*")
         .eq("is_bestseller", true)
         .limit(8);
 
       // Fetch New Arrivals
       const { data: nData } = await supabase
-        .from("lty_products")
+        .from("ecom-products")
         .select("*")
         .eq("is_new", true)
         .order("created_at", { ascending: false })
@@ -32,7 +31,7 @@ export default function HomePage() {
 
       // Fetch Others (Not Best, Not New)
       const { data: oData } = await supabase
-        .from("lty_products")
+        .from("ecom-products")
         .select("*")
         .eq("is_bestseller", false)
         .eq("is_new", false)
@@ -41,7 +40,7 @@ export default function HomePage() {
       const mapProduct = (p: any) => ({
         id: p.id,
         name: p.name,
-        nameFr: p.name_fr || p.name || "Produit Ltyy Mood",
+        nameFr: p.name_fr || p.name || "Produit Bling Store",
         price: p.price,
         category: p.category,
         image: p.images?.[0] || "/images/placeholder.jpg",
@@ -62,7 +61,6 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <MarqueeBanner />
       <CategoryGrid />
 
       {bestsellers.length > 0 && (

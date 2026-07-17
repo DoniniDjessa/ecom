@@ -60,14 +60,15 @@
 }
 
 .cardLabel {
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
   color: var(--white);
-  text-transform: uppercase;
 }
 
 @media (max-width: 768px) {
   .grid { grid-template-columns: 1fr; }
   .cardLink { min-height: 260px; }
+  .cardImg { background-position: center; }
 }

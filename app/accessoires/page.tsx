@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import FilterableGallery from '@/components/FilterableGallery';
 
 export const metadata: Metadata = {
-  title: 'Accessoires & Bijoux — Ltyy Mood',
+  title: 'Accessoires & Bijoux — Bling Store',
   description: 'Complétez votre look avec notre sélection de bijoux et accessoires tendance.',
 };
 

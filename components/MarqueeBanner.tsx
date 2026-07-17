@@ -2,7 +2,7 @@
 
 import styles from './MarqueeBanner.module.css';
 
-const text = 'LTYY MOOD ♥ ';
+const text = 'BLING STORE ♥ ';
 const repeated = text.repeat(10);
 
 export default function MarqueeBanner() {

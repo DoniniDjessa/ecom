@@ -16,7 +16,7 @@ export default function HeroSection() {
 
   useEffect(() => {
     async function fetchHero() {
-      const { data } = await supabase.from('lty_settings').select('*');
+      const { data } = await supabase.from('ecom-settings').select('*');
       if (data) {
         const heroData: any = {};
         data.forEach(s => {
